@@ -5,10 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 21 }
       - uses: actions/setup-java@v4
-        with: { distribution: temurin, java-version: 17 }
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - run: mkdir -p dist/client && echo "<html><body></body></html>" > dist/client/index.html
       - run: npm ci --legacy-peer-deps && npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
