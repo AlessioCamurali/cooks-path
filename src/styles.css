@@ -1,0 +1,163 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Cook's Path — Royal Gold Grimoire design system.
+   Dark leather + glowing gold filigree, RPG quest-panel aesthetic. */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ember: var(--ember);
+  --color-parchment: var(--parchment);
+  --font-serif: "Cinzel", "Cormorant Garamond", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Royal Gold Grimoire — single dark theme */
+  --background: oklch(0.16 0.018 60);
+  --foreground: oklch(0.94 0.04 80);
+  --card: oklch(0.20 0.022 60);
+  --card-foreground: oklch(0.94 0.04 80);
+  --popover: oklch(0.18 0.02 60);
+  --popover-foreground: oklch(0.94 0.04 80);
+  --primary: oklch(0.78 0.13 82);
+  --primary-foreground: oklch(0.14 0.02 60);
+  --secondary: oklch(0.24 0.025 60);
+  --secondary-foreground: oklch(0.92 0.05 82);
+  --muted: oklch(0.22 0.02 60);
+  --muted-foreground: oklch(0.68 0.04 75);
+  --accent: oklch(0.30 0.04 60);
+  --accent-foreground: oklch(0.92 0.06 82);
+  --destructive: oklch(0.55 0.20 27);
+  --destructive-foreground: oklch(0.98 0.02 80);
+  --border: oklch(0.32 0.05 70);
+  --input: oklch(0.26 0.025 60);
+  --ring: oklch(0.78 0.13 82);
+  --chart-1: oklch(0.78 0.13 82);
+  --chart-2: oklch(0.65 0.15 60);
+  --chart-3: oklch(0.55 0.18 35);
+  --chart-4: oklch(0.45 0.12 70);
+  --chart-5: oklch(0.88 0.10 90);
+  --sidebar: oklch(0.14 0.018 60);
+  --sidebar-foreground: oklch(0.90 0.04 80);
+  --sidebar-primary: oklch(0.78 0.13 82);
+  --sidebar-primary-foreground: oklch(0.14 0.02 60);
+  --sidebar-accent: oklch(0.22 0.02 60);
+  --sidebar-accent-foreground: oklch(0.92 0.05 82);
+  --sidebar-border: oklch(0.32 0.05 70);
+  --sidebar-ring: oklch(0.78 0.13 82);
+
+  --gold: oklch(0.82 0.14 82);
+  --gold-soft: oklch(0.92 0.10 88);
+  --ember: oklch(0.62 0.19 35);
+  --parchment: oklch(0.94 0.04 80);
+
+  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 82) 0%, oklch(0.92 0.10 88) 100%);
+  --gradient-grimoire: linear-gradient(180deg, oklch(0.22 0.025 60) 0%, oklch(0.14 0.018 60) 100%);
+  --gradient-ember: linear-gradient(135deg, oklch(0.62 0.19 35), oklch(0.82 0.14 82));
+  --shadow-gold: 0 0 24px -4px oklch(0.78 0.13 82 / 0.45), 0 0 1px oklch(0.82 0.14 82 / 0.8);
+  --shadow-quest: 0 30px 60px -30px oklch(0 0 0 / 0.8), 0 0 0 1px oklch(0.78 0.13 82 / 0.35);
+}
+
+.dark {
+  /* App is always dark — keep tokens identical to :root for safety. */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.30 0.06 60 / 0.4), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, oklch(0.28 0.08 35 / 0.25), transparent 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .gold-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .quest-panel {
+    position: relative;
+    background:
+      linear-gradient(180deg, oklch(0.22 0.025 60 / 0.92), oklch(0.14 0.018 60 / 0.92));
+    border: 1px solid oklch(0.78 0.13 82 / 0.35);
+    box-shadow: var(--shadow-quest);
+    border-radius: var(--radius);
+    backdrop-filter: blur(8px);
+  }
+  .quest-panel::before, .quest-panel::after {
+    content: "";
+    position: absolute;
+    width: 22px; height: 22px;
+    border: 1px solid var(--gold);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .quest-panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .quest-panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  .gold-glow {
+    box-shadow: var(--shadow-gold);
+  }
+}
